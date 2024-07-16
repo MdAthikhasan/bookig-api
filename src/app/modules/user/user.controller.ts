@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import userService from "./user.service";
 import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendResponse";
@@ -14,6 +13,7 @@ const createAdmin = catchAsync(async (req, res, next) => {
     data: createdAdminData,
   });
 });
+
 const createUser = catchAsync(async (req, res, next) => {
   const userData = req.body;
   const createUserData = await userService.insertUserInfoInDB(userData);

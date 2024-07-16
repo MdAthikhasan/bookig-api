@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import router from "./app/routes/routes";
 import notFound from "./app/middleware/notFoundHandler";
-import httpStatus from "http-status";
 
 // Initialize dotenv to load environment variables
 dotenv.config();
