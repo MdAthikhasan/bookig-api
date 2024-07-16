@@ -11,8 +11,13 @@ const insertUserInfoInDB = async (payload: TUser) => {
   const createUserData = await User.create(payload);
   return createUserData;
 };
+const getUserFromDB = async () => {
+  const allUsers = await User.find();
+  return allUsers;
+};
 const userService = {
   insertAdminInfoInDB,
   insertUserInfoInDB,
+  getUserFromDB,
 };
 export default userService;

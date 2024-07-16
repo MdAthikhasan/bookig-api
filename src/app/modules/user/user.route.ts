@@ -1,7 +1,7 @@
 import { Router } from "express";
 import userController from "./user.controller";
 import validateRequest from "../../middleware/validateRequest";
-import {  adminSchemaValidation } from "../admin/admin.validation";
+import { adminSchemaValidation } from "../admin/admin.validation";
 import { userSchemaValidation } from "./user.validation";
 
 const userRoute = Router();
@@ -11,9 +11,11 @@ userRoute.post(
   validateRequest(adminSchemaValidation),
   userController.createAdmin
 );
+
 userRoute.post(
   "/create-user",
   validateRequest(userSchemaValidation),
   userController.createUser
 );
+userRoute.get("/users", userController.getUsers);
 export default userRoute;
