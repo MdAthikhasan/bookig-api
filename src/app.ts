@@ -13,7 +13,12 @@ const app: Application = express();
 app.use(express.json());
 
 // Middleware to enable CORS with specific origins
-app.use(cors({ origin: ["http://localhost:3000"], credentials: true }));
+app.use(
+  cors({
+    origin: ["https://assignment-3-olive.vercel.app"],
+    credentials: true,
+  })
+);
 
 // Application-level routes
 app.use("/api/v1", router);
