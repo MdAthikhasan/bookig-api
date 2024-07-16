@@ -1,9 +1,6 @@
-import { Request, Response } from "express";
 import { TUser } from "../modules/user/user.interface";
 import { User } from "../modules/user/user.model";
-import { sendResponse } from "../utils/sendResponse";
 import bcrypt from "bcrypt";
-import httpStatus from "http-status";
 import jwt from "jsonwebtoken";
 import config from "../config/config";
 import { TAuthLogin } from "./auth.interface";
@@ -29,7 +26,6 @@ const authenticUserLogin = async (payload: TAuthLogin) => {
       isExitsUser.password
     );
     if (!isVerifiedPassword) {
-      console.log(isVerifiedPassword);
       throw new Error("Password dont match");
     }
   } catch (error) {

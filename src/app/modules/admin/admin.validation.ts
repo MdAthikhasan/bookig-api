@@ -1,7 +1,4 @@
-// validation.ts
-
 import { z } from "zod";
-import { Types } from "mongoose";
 
 const userNameSchema = z.object({
   firstName: z.string(),

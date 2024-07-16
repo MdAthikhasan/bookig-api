@@ -2,8 +2,7 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import router from "./app/routes/routes";
-// import notFound from "./app/middleware/notFoundHandler";
-// import globalErrorHandler from "./app/middleware/globalErrorHandler";
+import notFound from "./app/middleware/notFoundHandler";
 
 // Initialize dotenv to load environment variables
 dotenv.config();
@@ -25,10 +24,10 @@ app.post("/", (req: Request, res: Response) => {
   res.send("Hello world");
 });
 
-// Global error handler middleware (uncomment and implement if needed)
+// Global error handler middleware
 // app.use(globalErrorHandler);
 
-// Not found handler middleware (uncomment and implement if needed)
-// app.use(notFound);
+// Not found handler middleware
+app.use(notFound);
 
 export default app;
