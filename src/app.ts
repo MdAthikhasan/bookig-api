@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import router from "./app/routes/routes";
 import notFound from "./app/middleware/notFoundHandler";
+import httpStatus from "http-status";
 
 // Initialize dotenv to load environment variables
 dotenv.config();
@@ -19,9 +20,10 @@ app.use(cors({ origin: ["http://localhost:3000"], credentials: true }));
 app.use("/api/v1", router);
 
 // Root route
-app.post("/", (req: Request, res: Response) => {
-  console.log(req.body.roomData);
-  res.send("Hello world");
+app.get("/", (req: Request, res: Response) => {
+  res.send({
+    title: "Hello world!",
+  });
 });
 
 // Global error handler middleware
