@@ -5,10 +5,9 @@ const notFound = (req: Request, res: Response, next: NextFunction) => {
   res.status(httpStatus.NOT_FOUND).json({
     success: false,
     statusCode: 404,
-    message: "Data Found",
+    message: "Data not Found",
     data: [],
   });
-  next();
 };
 
 export default notFound;
